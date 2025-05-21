@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Heart Attack Risk Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>❤️ Heart Attack Risk Predictor</h1>
+
+        {% if prediction %}
+            <div class="result">{{ prediction }}</div>
+        {% endif %}
+
+        <form method="POST">
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label>Age</label>
+                    <input type="number" name="Age" placeholder="e.g. 55" required value="{{ input_data['Age'] if input_data else '' }}">
+                </div>
+
+                <div class="form-group">
+                    <label>Sex</label>
+                    <select name="Sex" required>
+                        <option value="">Select Sex</option>
+                        <option value="M" {% if input_data and input_data['Sex'] == 'M' %}selected{% endif %}>Male</option>
+                        <option value="F" {% if input_data and input_data['Sex'] == 'F' %}selected{% endif %}>Female</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Chest Pain Type</label>
+                    <select name="ChestPainType" required>
+                        <option value="">Select Type</option>
+                        <option value="ATA">ATA (Typical Angina)</option>
+                        <option value="NAP">NAP (Non-Anginal)</option>
+                        <option value="ASY">ASY (Asymptomatic)</option>
+                        <option value="TA">TA (Atypical Angina)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Resting Blood Pressure</label>
+                    <input type="number" name="RestingBP" placeholder="e.g. 130" required value="{{ input_data['RestingBP'] if input_data else '' }}">
+                </div>
+
+                <div class="form-group">
+                    <label>Cholesterol (mg/dL)</label>
+                    <input type="number" name="Cholesterol" placeholder="e.g. 200" required value="{{ input_data['Cholesterol'] if input_data else '' }}">
+                </div>
+
+                <div class="form-group">
+                    <label>Fasting Blood Sugar (0 = No, 1 = Yes)</label>
+                    <input type="number" name="FastingBS" min="0" max="1" placeholder="0 or 1" required value="{{ input_data['FastingBS'] if input_data else '' }}">
+                </div>
+
+                <div class="form-group">
+                    <label>Resting ECG</label>
+                    <select name="RestingECG" required>
+                        <option value="">Select ECG Result</option>
+                        <option value="Normal">Normal</option>
+                        <option value="ST">ST</option>
+                        <option value="LVH">LVH</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Maximum Heart Rate</label>
+                    <input type="number" name="MaxHR" placeholder="e.g. 150" required value="{{ input_data['MaxHR'] if input_data else '' }}">
+                </div>
+
+                <div class="form-group">
+                    <label>Exercise Induced Angina</label>
+                    <select name="ExerciseAngina" required>
+                        <option value="">Select Option</option>
+                        <option value="Y">Yes</option>
+                        <option value="N">No</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Oldpeak (ST depression)</label>
+                    <input type="number" step="any" name="Oldpeak" placeholder="e.g. 1.4" required value="{{ input_data['Oldpeak'] if input_data else '' }}">
+                </div>
+
+                <div class="form-group">
+                    <label>ST Slope</label>
+                    <select name="ST_Slope" required>
+                        <option value="">Select Slope</option>
+                        <option value="Up">Up</option>
+                        <option value="Flat">Flat</option>
+                        <option value="Down">Down</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="button-wrap">
+                <button type="submit">Predict</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
