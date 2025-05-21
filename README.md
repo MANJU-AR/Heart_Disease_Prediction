@@ -2,11 +2,10 @@
 
 A machine learning web application that predicts the likelihood of heart disease based on various health metrics and patient characteristics. This project uses a Logistic Regression model trained on the Heart Disease dataset.
 
-![Heart Disease Prediction App Screenshot](Screenshot 2025-05-21 185305.png)
+
 
 ## 📋 Table of Contents
 - [Features](#features)
-- [Demo](#demo)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Project Structure](#project-structure)
@@ -22,13 +21,6 @@ A machine learning web application that predicts the likelihood of heart disease
 - Detailed results with risk factor analysis
 - API endpoint for integration with other applications
 
-## 🎬 Demo
-
-### Prediction Interface
-![Prediction Interface](Screenshot 2025-05-21 185305.png)
-
-### Results Screen
-![Results Screen](screenshots/results_screen.png)
 
 ## 📦 Installation
 
